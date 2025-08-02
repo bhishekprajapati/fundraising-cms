@@ -7,7 +7,8 @@ import { buildConfig, PayloadRequest } from 'payload'
 import { fileURLToPath } from 'url'
 
 import { Media } from './collections/Media'
-import { Users } from './collections/Users'
+import { UserCollectionConfig } from './collections/users'
+import { CampaignCollectionConfig } from './collections/campagins/'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
@@ -27,7 +28,7 @@ export default buildConfig({
     importMap: {
       baseDir: path.resolve(dirname),
     },
-    user: Users.slug,
+    user: UserCollectionConfig.slug,
     livePreview: {
       breakpoints: [
         {
@@ -58,7 +59,7 @@ export default buildConfig({
       connectionString: process.env.POSTGRES_URL || '',
     },
   }),
-  collections: [Media, Users],
+  collections: [Media, UserCollectionConfig, CampaignCollectionConfig],
   cors: [getServerSideURL()].filter(Boolean),
   plugins: [
     ...plugins,
@@ -83,5 +84,8 @@ export default buildConfig({
       },
     },
     tasks: [],
+  },
+  graphQL: {
+    disable: true,
   },
 })
