@@ -180,7 +180,7 @@ export function DonateForm(props: TDonateFormProps) {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input pattern="[d]" placeholder={withCurrencySymbol(500)} {...field} />
+                  <Input placeholder={withCurrencySymbol(500)} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
