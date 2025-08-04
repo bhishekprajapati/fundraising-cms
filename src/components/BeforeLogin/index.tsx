@@ -2,11 +2,19 @@ import React from 'react'
 
 const BeforeLogin: React.FC = () => {
   return (
-    <div>
-      <p>
-        <b>Welcome to your dashboard!</b>
-        {' This is where site admins will log in to manage your website.'}
-      </p>
+    <div
+      style={{
+        textAlign: 'center',
+      }}
+    >
+      <h1
+        style={{
+          marginBottom: '1.25rem',
+          fontWeight: 'bold',
+        }}
+      >
+        She Can Foundation
+      </h1>
     </div>
   )
 }

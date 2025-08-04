@@ -1,4 +1,3 @@
-// storage-adapter-import-placeholder
 import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres'
 
 import sharp from 'sharp' // sharp-import
@@ -8,10 +7,12 @@ import { fileURLToPath } from 'url'
 
 import { Media } from './collections/Media'
 import { UserCollectionConfig } from './collections/users'
-import { CampaignCollectionConfig } from './collections/campagins/'
+import { CampaignCollectionConfig } from './collections/campaigns/'
+import { DonationCollectionConfig } from './collections/donations/'
 import { plugins } from './plugins'
 import { defaultLexical } from '@/fields/defaultLexical'
 import { getServerSideURL } from './utilities/getURL'
+import { size } from 'zod'
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -24,6 +25,26 @@ export default buildConfig({
     components: {
       beforeLogin: ['@/components/BeforeLogin'],
       beforeDashboard: ['@/components/BeforeDashboard'],
+      graphics: {
+        Logo: {
+          path: '@/components/brand#Logo',
+          clientProps: {
+            size: 72,
+            style: {
+              borderRadius: '50%',
+            },
+          },
+        },
+        Icon: {
+          path: '@/components/brand#Logo',
+          clientProps: {
+            size: 36,
+            style: {
+              borderRadius: '50%',
+            },
+          },
+        },
+      },
     },
     importMap: {
       baseDir: path.resolve(dirname),
@@ -51,6 +72,16 @@ export default buildConfig({
         },
       ],
     },
+    meta: {
+      titleSuffix: '- She Can Foundation',
+      icons: [
+        {
+          rel: 'icon',
+          type: 'image/x-icon',
+          url: 'favicon.ico',
+        },
+      ],
+    },
   },
   // This config helps us configure global or default features that the other editors can inherit
   editor: defaultLexical,
@@ -59,12 +90,9 @@ export default buildConfig({
       connectionString: process.env.POSTGRES_URL || '',
     },
   }),
-  collections: [Media, UserCollectionConfig, CampaignCollectionConfig],
+  collections: [Media, UserCollectionConfig, CampaignCollectionConfig, DonationCollectionConfig],
   cors: [getServerSideURL()].filter(Boolean),
-  plugins: [
-    ...plugins,
-    // storage-adapter-placeholder
-  ],
+  plugins: [...plugins],
   secret: process.env.PAYLOAD_SECRET,
   sharp,
   typescript: {

@@ -1,3 +1,4 @@
+import defaultTheme from 'tailwindcss/defaultTheme'
 import tailwindcssAnimate from 'tailwindcss-animate'
 import typography from '@tailwindcss/typography'
 
@@ -94,8 +95,8 @@ const config = {
         warning: 'hsl(var(--warning))',
       },
       fontFamily: {
-        mono: ['var(--font-geist-mono)'],
-        sans: ['var(--font-geist-sans)'],
+        sans: ['var(--font-dm-sans)', ...defaultTheme.fontFamily.sans],
+        heading: ['var(--font-poppins)', ...defaultTheme.fontFamily.sans],
       },
       keyframes: {
         'accordion-down': {

@@ -38,15 +38,15 @@ export const CampaignCollectionConfig: CollectionConfig = {
     {
       name: 'description',
       type: 'textarea',
-      maxLength: 512,
-      defaultValue: '',
+      maxLength: 2000,
+      required: true,
     },
-    // {
-    //   name: 'cover',
-    //   type: 'relationship',
-    //   relationTo: 'media',
-    //   required: true,
-    // },
+    {
+      name: 'cover',
+      type: 'relationship',
+      relationTo: 'media',
+      required: true,
+    },
     {
       name: 'goal',
       label: 'Goal Amount',

@@ -26,3 +26,6 @@ export const isAdminOrSelf: Access = ({ req }) => {
 export const isAdminFieldLevel: FieldAccess<{ id: string }> = ({ req }) => {
   return req.user ? req.user.role === 'admin' : false
 }
+
+/** no one is allowed execpt the internal system */
+export const systemOnly = () => false
