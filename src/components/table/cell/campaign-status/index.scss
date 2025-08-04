@@ -1,0 +1,19 @@
+.campaign-status-cell {
+  display: inline-block;
+  text-transform: uppercase;
+  font-size: .75rem;
+  padding: .125em .5em;
+  border-radius: .5em;
+  font-weight: bold;
+  letter-spacing: .025em;
+
+  &[data-status="running"] {
+    color: green;
+    background-color: lightgreen;
+  }
+
+  &[data-status="paused"] {
+    color: black;
+    background-color: grey;
+  }
+}

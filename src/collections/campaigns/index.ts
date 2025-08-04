@@ -73,6 +73,13 @@ export const CampaignCollectionConfig: CollectionConfig = {
         },
       ],
       defaultValue: 'paused',
+      admin: {
+        components: {
+          Cell: {
+            path: '@/components/table/cell/campaign-status',
+          },
+        },
+      },
     },
     ...slugField('name', {
       slugOverrides: {
