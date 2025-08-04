@@ -1,7 +1,8 @@
-import { z } from 'zod'
 import { isAdmin } from '@/access'
 import { authenticated } from '@/access/authenticated'
+import { slugField } from '@/fields/slug'
 import type { CollectionConfig } from 'payload'
+import { z } from 'zod'
 
 const goalAmountSchema = z
   .number()
@@ -73,6 +74,11 @@ export const CampaignCollectionConfig: CollectionConfig = {
       ],
       defaultValue: 'paused',
     },
+    ...slugField('name', {
+      slugOverrides: {
+        required: true,
+      },
+    }),
   ],
   timestamps: true,
 }

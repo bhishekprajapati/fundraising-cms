@@ -248,6 +248,8 @@ export interface Campaign {
   cover: number | Media;
   goal: number;
   status: 'running' | 'paused';
+  slug: string;
+  slugLock?: boolean | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -465,6 +467,8 @@ export interface CampaignsSelect<T extends boolean = true> {
   cover?: T;
   goal?: T;
   status?: T;
+  slug?: T;
+  slugLock?: T;
   updatedAt?: T;
   createdAt?: T;
 }
