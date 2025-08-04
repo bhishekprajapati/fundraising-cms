@@ -34,7 +34,7 @@ type TPaymentFailureResponse = unknown
 const formSchema = z.object({
   name: z.string().trim().nonempty().max(64),
   email: z.email(),
-  amount: z
+  amount: z.coerce
     .number()
     .int()
     .min(1)
