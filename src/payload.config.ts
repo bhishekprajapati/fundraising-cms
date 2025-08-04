@@ -21,8 +21,9 @@ export default buildConfig({
   },
   admin: {
     components: {
-      beforeLogin: ['@/components/BeforeLogin'],
-      beforeDashboard: ['@/components/BeforeDashboard'],
+      providers: ['@/providers/toaster#ToasterProvider'],
+      beforeLogin: ['@/components/before-login'],
+      beforeDashboard: ['@/components/before-dashboard'],
       graphics: {
         Logo: {
           path: '@/components/brand#Logo',
