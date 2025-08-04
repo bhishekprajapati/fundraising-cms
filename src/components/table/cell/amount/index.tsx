@@ -1,8 +1,14 @@
 import { DefaultServerCellComponentProps } from 'payload'
 import { Amount } from '@/lib/amount'
 import './index.scss'
+import { Donation } from '@/payload-types'
 
 export default function AmountCell(props: DefaultServerCellComponentProps) {
-  const amount = new Amount(props.cellData as number)
-  return <span className="amount-cell">{amount.format()}</span>
+  const data = props.rowData as Donation
+  const amount = new Amount(data.amount)
+  return (
+    <span className="amount-cell" data-status={data.status}>
+      {amount.format()}
+    </span>
+  )
 }
