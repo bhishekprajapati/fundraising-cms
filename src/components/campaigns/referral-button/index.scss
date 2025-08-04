@@ -1,0 +1,36 @@
+.referral {
+  display: inline-flex;
+  align-items: center;
+  gap: .5em;
+  padding: .25em;
+  background-color: white;
+  border-radius: .25em;
+  color: black;
+  font-weight: medium;
+
+  &-link-text {
+    display: inline-block;
+    max-width: 9rem;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  &-link-icon {}
+
+  &-bttn {
+    display: inline-flex;
+    gap: .25em;
+    align-items: center;
+    border: none;
+    background-color: black;
+    color: white;
+    padding: .25em .5em;
+    border-radius: .35em;
+    cursor: pointer;
+  }
+
+  &-copy-icon {
+
+  }
+}

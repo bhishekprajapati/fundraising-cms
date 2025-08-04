@@ -9,6 +9,7 @@ import { BoldFeatureClient as BoldFeatureClient_e70f5e05f09f93e00b997edb1ef0c864
 import { ItalicFeatureClient as ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0c864 } from '@payloadcms/richtext-lexical/client'
 import { default as default_dbcd3e200d137ddd930bbbd1ec8f464a } from '@/components/table/cell/campaign-status'
 import { SlugComponent as SlugComponent_92cc057d0a2abb4f6cf0307edf59f986 } from '@/fields/slug/SlugComponent'
+import { CampaignReferralButton as CampaignReferralButton_a283c5ff3db0e3c9f26cb60aff46b97b } from '@/components/campaigns/referral-button'
 import { default as default_2cd3d5a2ab40f04dabebbb30ede60047 } from '@/components/table/cell/amount'
 import { default as default_348b8850fb789a8dd5a3c4351f70d556 } from '@/components/table/cell/payment-method'
 import { Logo as Logo_7133cebee1f5b38dfaca3913ff1bcf83 } from '@/components/brand'
@@ -29,6 +30,7 @@ export const importMap = {
   "@payloadcms/richtext-lexical/client#ItalicFeatureClient": ItalicFeatureClient_e70f5e05f09f93e00b997edb1ef0c864,
   "@/components/table/cell/campaign-status#default": default_dbcd3e200d137ddd930bbbd1ec8f464a,
   "@/fields/slug/SlugComponent#SlugComponent": SlugComponent_92cc057d0a2abb4f6cf0307edf59f986,
+  "@/components/campaigns/referral-button#CampaignReferralButton": CampaignReferralButton_a283c5ff3db0e3c9f26cb60aff46b97b,
   "@/components/table/cell/amount#default": default_2cd3d5a2ab40f04dabebbb30ede60047,
   "@/components/table/cell/payment-method#default": default_348b8850fb789a8dd5a3c4351f70d556,
   "@/components/brand#Logo": Logo_7133cebee1f5b38dfaca3913ff1bcf83,

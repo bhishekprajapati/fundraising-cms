@@ -19,8 +19,17 @@ const goalAmountSchema = z
 export const CampaignCollectionConfig: CollectionConfig = {
   slug: 'campaigns',
   admin: {
-    defaultColumns: ['id', 'name', 'status', 'createdAt', 'updatedAt'],
     useAsTitle: 'name',
+    defaultColumns: ['id', 'name', 'status', 'createdAt', 'updatedAt'],
+    components: {
+      edit: {
+        beforeDocumentControls: [
+          {
+            path: '@/components/campaigns/referral-button#CampaignReferralButton',
+          },
+        ],
+      },
+    },
   },
   access: {
     create: isAdmin,
