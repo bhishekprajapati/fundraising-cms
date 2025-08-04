@@ -8,6 +8,7 @@ const amountSchema = z.number().int().gte(MIN_SAFE_AMOUNT).lte(MAX_SAFE_AMOUNT)
 export class Amount {
   static readonly SUB_UNITS = 2
   static readonly CURRENCY = 'INR'
+  static readonly CURRENCY_SYMBOL = '₹'
   static readonly MIN_SAFE_AMOUNT = MIN_SAFE_AMOUNT
   static readonly MAX_SAFE_AMOUNT = MAX_SAFE_AMOUNT
   readonly #value
@@ -23,6 +24,14 @@ export class Amount {
 
   getCurrency() {
     return Amount.CURRENCY
+  }
+
+  format() {
+    return new Intl.NumberFormat('en-IN', {
+      style: 'currency',
+      currency: this.getCurrency(),
+      minimumFractionDigits: Amount.SUB_UNITS,
+    }).format(this.toNumber())
   }
 
   get value() {

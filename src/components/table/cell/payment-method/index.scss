@@ -1,0 +1,67 @@
+.payment-method-cell {
+  text-transform: uppercase;
+  display: inline-block;
+  position: relative;
+  font-size: .75rem;
+  background-color: black;
+  padding: .25em .5em;
+  border-radius: .5em;
+  letter-spacing: .075em;
+
+  &[data-method="upi"]::before {
+    margin: 0 .25rem 0 0;
+    display: inline-block;
+    content: "";
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: middle;
+    background-image: url("/upi-logo.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+
+  &[data-method="card"]::before {
+    margin: 0 .25rem 0 0;
+    display: inline-block;
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    vertical-align: middle;
+    background-image: url("/card.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+
+  &[data-method="wallet"]::before {
+    margin: 0 .25rem 0 0;
+    display: inline-block;
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    vertical-align: middle;
+    background-image: url("/wallet.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+
+
+  &[data-method="netbanking"]::before {
+    margin: 0 .25rem 0 0;
+    display: inline-block;
+    content: "";
+    width: 1rem;
+    height: 1rem;
+    vertical-align: middle;
+    background-image: url("/bank.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+}
+
+

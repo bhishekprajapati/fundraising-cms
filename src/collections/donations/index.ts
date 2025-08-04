@@ -133,7 +133,7 @@ function makeDonationCaptureHandler() {
 export const DonationCollectionConfig: CollectionConfig = {
   slug: 'donations',
   admin: {
-    defaultColumns: ['orderId', 'amount', 'campaign', 'referrer', 'method'],
+    defaultColumns: ['campaign', 'orderId', 'amount', 'referrer', 'method'],
   },
   access: {
     read: ({ req }) => {
@@ -195,6 +195,11 @@ export const DonationCollectionConfig: CollectionConfig = {
       min: Amount.MIN_SAFE_AMOUNT,
       max: Amount.MAX_SAFE_AMOUNT,
       required: true,
+      admin: {
+        components: {
+          Cell: '@/components/table/cell/amount',
+        },
+      },
     },
     {
       name: 'currency',
@@ -206,6 +211,7 @@ export const DonationCollectionConfig: CollectionConfig = {
         },
       ],
       defaultValue: 'INR',
+      hidden: true,
     },
     {
       name: 'status',
@@ -248,6 +254,11 @@ export const DonationCollectionConfig: CollectionConfig = {
         },
       ],
       required: true,
+      admin: {
+        components: {
+          Cell: '@/components/table/cell/payment-method',
+        },
+      },
     },
     {
       name: 'email',
