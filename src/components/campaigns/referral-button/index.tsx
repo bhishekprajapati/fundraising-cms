@@ -7,11 +7,12 @@ import { Copy, Link } from 'lucide-react'
 import React from 'react'
 import toast from 'react-hot-toast'
 import './index.scss'
+import canUseDOM from '@/utilities/canUseDOM'
 
-export function CampaignReferralButton() {
+function ReferralButton() {
   const user = useAuth()
   const doc = useDocumentInfo()
-  const link = typeof window === undefined ? undefined : generateLink()
+  const link = !canUseDOM ? undefined : generateLink()
 
   function generateLink() {
     const domain = window.location.origin
@@ -41,4 +42,9 @@ export function CampaignReferralButton() {
       </button>
     </span>
   ) : null
+}
+
+export function CampaignReferralButton() {
+  const doc = useDocumentInfo()
+  return doc.isEditing ? <ReferralButton /> : null
 }
