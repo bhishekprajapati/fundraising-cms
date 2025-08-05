@@ -9,8 +9,8 @@ import toast from 'react-hot-toast'
 import './index.scss'
 
 export function CampaignReferralButton() {
-  const doc = useDocumentInfo()
   const user = useAuth()
+  const doc = useDocumentInfo()
   const link = typeof window === undefined ? undefined : generateLink()
 
   function generateLink() {
@@ -25,14 +25,15 @@ export function CampaignReferralButton() {
   function handleCopy(e: React.MouseEvent<HTMLButtonElement>) {
     e.preventDefault()
     e.stopPropagation()
-    copy(generateLink(), {
-      onCopy() {
-        toast.success('Referral link copied')
-      },
-    })
+    if (link) {
+      copy(link)
+      toast.success('Referral link copied')
+    }
   }
 
-  return (
+  console.log(doc.isTrashed)
+
+  return link ? (
     <span className="referral">
       <Link className="referral-link-icon" size={16} />
       <span className="referral-link-text">{link}</span>
@@ -41,5 +42,5 @@ export function CampaignReferralButton() {
         Refer
       </button>
     </span>
-  )
+  ) : null
 }
