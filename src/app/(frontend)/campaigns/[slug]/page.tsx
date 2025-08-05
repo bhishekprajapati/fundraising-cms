@@ -68,7 +68,7 @@ export default async function page(props: TProps) {
 
   return (
     <div className="p-4 my-12 md:my-24">
-      <div className="relative mx-auto max-w-xl bg-zinc-950 rounded-xl">
+      <div className="relative mx-auto max-w-xl bg-card rounded-2xl">
         <article className=" flex flex-col gap-4">
           <div className="pt-4 px-4">
             <div className="relative rounded-xl overflow-hidden">
