@@ -31,8 +31,6 @@ export function CampaignReferralButton() {
     }
   }
 
-  console.log(doc.isTrashed)
-
   return link ? (
     <span className="referral">
       <Link className="referral-link-icon" size={16} />
