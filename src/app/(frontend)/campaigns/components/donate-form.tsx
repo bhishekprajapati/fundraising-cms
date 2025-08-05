@@ -105,22 +105,22 @@ export function DonateForm(props: TDonateFormProps) {
 
         if (result.ok) {
           const order = result.data
+          // @ts-ignore no types available
           const payment = new Razorpay({
             key,
             amount,
             currency,
             order_id: order.id,
             name: 'She can foundation',
+            handler(data: TPaymentSucessResponse) {
+              console.log(data)
+              form.reset()
+            },
             // callback_url: ""
           })
 
           payment.on('payment.failed', (err: TPaymentFailureResponse) => {
             console.error(err)
-          })
-
-          payment.on('payment.success', (data: TPaymentSucessResponse) => {
-            console.log(data)
-            form.reset()
           })
 
           payment.open()
@@ -168,7 +168,11 @@ export function DonateForm(props: TDonateFormProps) {
             <Button
               key={amount}
               variant={watchedAmount === amount ? 'default' : 'outline'}
-              onClick={() => form.setValue('amount', amount)}
+              onClick={(e) => {
+                e.preventDefault()
+                e.stopPropagation()
+                form.setValue('amount', amount)
+              }}
             >
               {withCurrencySymbol(amount)}
             </Button>
@@ -180,7 +184,7 @@ export function DonateForm(props: TDonateFormProps) {
             render={({ field }) => (
               <FormItem>
                 <FormControl>
-                  <Input placeholder={withCurrencySymbol(500)} {...field} />
+                  <Input type="number" placeholder={withCurrencySymbol(500)} {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
